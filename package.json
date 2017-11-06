@@ -1,0 +1,22 @@
+{
+  "name": "zadatak",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "@uirouter/angularjs": "^1.0.0-beta.1",
+    "babel-polyfill": "^6.26.0",
+    "normalize.css": "^3.0.3"
+  },
+  "scripts": {
+    "start": "http-server ./ -a localhost -p 8000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  },
+
+  "author": "Marko",
+  "license": "ISC"
+}
