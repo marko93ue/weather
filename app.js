@@ -4,7 +4,7 @@ app.config(function($stateProvider){
   var states = [
     {
       name: 'home',
-      url: '/',
+      url: '',
       component: 'home'
     },
   

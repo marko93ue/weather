@@ -2,7 +2,7 @@ angular.module("app").component('home',{
   bindings: { forecast: '<'},
   template: 
   
-'      <div class="row"  >'+
+'      <div class="row mt-5"  >'+
 '      <div  class="col-8" >'+
 '        <input type="button" ng-click="addZipCode()" value="Add zip code" />'+
 '        <input type="button" ng-click="checkWeather()" value="Check current weather" />'+
