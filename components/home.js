@@ -14,6 +14,7 @@ angular.module("app").component('home',{
 '            <span ng-if="x.weather.dt" ui-sref="home.forecast({zipCode: x.value })" >'+
 '              {{x.weather.name}} {{ (x.weather.main.temp-273).toFixed()}}C {{x.weather.weather[0].description}}'+
 '            </span>'+
+'            <span ng-if="x.error">{{x.error}}</span>'+
 '          </div>'+          
 '        </div>'+
 '        <br>'+
