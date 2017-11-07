@@ -10,7 +10,7 @@ app.config(function($stateProvider){
   
     {
       name: 'home.forecast',
-      url: '/zip/{zipCode}',
+      url: 'zip/{zipCode}',
       component: 'forecast',
       resolve: {
         forecast: function($stateParams, WeatherService)
@@ -26,9 +26,8 @@ app.config(function($stateProvider){
   });
 });
 
-app.run( function($state)
-{
-  $state.go('home');
+app.config( function( $urlRouterProvider){
+   $urlRouterProvider.when('', '/');
+    $urlRouterProvider.otherwise('/');
 });
-
 

@@ -1,15 +1,17 @@
 angular.module("app").factory('WeatherService', function($http){
   var service = {
     getCurrentWeather: function (zipCode){
+      
       zipCode.weather = undefined;
       zipCode.error = undefined;
-      $http({
+      return $http({
         method: 'GET',
         url: 'http://api.openweathermap.org/data/2.5/weather',
         params: {'zip': zipCode.value, 'appid': 'bd5e378503939ddaee76f12ad7a97608'}
       }).then(function(response){
         
-        zipCode.weather = response.data;         
+        zipCode.weather = response.data;
+        return response.data;
       },
       
       function(){

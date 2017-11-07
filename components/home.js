@@ -4,8 +4,7 @@ angular.module("app").component('home',{
   
 '      <div class="row mt-5"  >'+
 '      <div  class="col-8" >'+
-'        <input type="button" ng-click="addZipCode()" value="Add zip code" />'+
-'        <input type="button" ng-click="checkWeather()" value="Check current weather" />'+
+'        <input type="button" ng-click="clearAll()" class="float-right" value="Clear All" />'+
 '        <br><br>'+
 '        <div ng-repeat="x in zipCodes" >'+       
 '          <div ng-if="x.show" class="alert alert-danger" >'+
@@ -20,7 +19,8 @@ angular.module("app").component('home',{
 '        <br>'+
 '        <input type="button" class="float-right" ng-if="zipCodes[0].show" ng-click="removeZipCode()"'+
 '          value="Remove zip last code" /> '+
-'        <input type="button" ng-click="clearAll()" ui-sref="home" value="Clear All" />'+
+'        <input type="button" ng-click="addZipCode()" value="Add zip code" />'+
+'        <input type="button" ng-click="checkWeather()" value="Check current weather" />'+
 '        <br>'+        
 '      </div>'+
 '      <ui-view></ui-view>'+
@@ -86,7 +86,7 @@ angular.module("app").component('home',{
   
   $scope.clearAll = function clearAllFn()
   {
-    console.log("Ok");
+
     for(let i =0; i < $scope.maxSize; i++)
     {
       if( i === 0)
@@ -103,6 +103,7 @@ angular.module("app").component('home',{
       $scope.zipCodes[i].error = undefined;
       
     }
+    $state.go('^', {}, {location: true});
   }
 }
   
