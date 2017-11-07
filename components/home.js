@@ -18,14 +18,15 @@ angular.module("app").component('home',{
 '          </div>'+          
 '        </div>'+
 '        <br>'+
-'        <input type="button" ng-if="zipCodes[0].show" ng-click="removeZipCode()"'+
-'          value="Remove zip last code" />'+
+'        <input type="button" class="float-right" ng-if="zipCodes[0].show" ng-click="removeZipCode()"'+
+'          value="Remove zip last code" /> '+
+'        <input type="button" ng-click="clearAll()" ui-sref="home" value="Clear All" />'+
 '        <br>'+        
 '      </div>'+
 '      <ui-view></ui-view>'+
 '    </div>',
             
-  controller: function($scope,WeatherService){
+  controller: function($scope, $state, WeatherService){
   $scope.maxSize = 10;
   $scope.zipCodes = [];
 
@@ -80,6 +81,27 @@ angular.module("app").component('home',{
           $scope.zipCodes[j].weather = WeatherService.getCurrentWeather($scope.zipCodes[j]);
         }
       }(i));
+    }
+  }
+  
+  $scope.clearAll = function clearAllFn()
+  {
+    console.log("Ok");
+    for(let i =0; i < $scope.maxSize; i++)
+    {
+      if( i === 0)
+      {
+        $scope.zipCodes[i].show = true;
+      }
+      else
+      {
+        $scope.zipCodes[i].show = false;
+      }
+
+      $scope.zipCodes[i].value = "" ;
+      $scope.zipCodes[i].weather = undefined;
+      $scope.zipCodes[i].error = undefined;
+      
     }
   }
 }
